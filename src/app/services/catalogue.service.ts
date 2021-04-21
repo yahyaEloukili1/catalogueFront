@@ -13,6 +13,9 @@ export class CatalogueService {
   getResource(resource: String,page,size):Observable<Product[]>{
       return this.http.get<Product[]>(`${this.host}/${resource}?page=${page}&size=${size}`);
   }
+  addResource(resource: string,value:any):Observable<Product>{
+    return this.http.post<Product>(`${this.host}/${resource}`,value);
+}
   getResourceByKeyword(resource: String,page,size,mc):Observable<Product[]>{
     return this.http.get<Product[]>(`${this.host}/${resource}/search/byDesignationPage?mc=${mc}&page=${page}&size=${size}`);
 }
